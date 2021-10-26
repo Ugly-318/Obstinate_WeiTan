@@ -9,10 +9,10 @@
         <img class="card-img-top" src="https://tvax3.sinaimg.cn/crop.0.0.1080.1080.180/006lYR5Rly8gnstou9ep7j30u00u0tc0.jpg?KID=imgbed,tva&Expires=1635186284&ssig=RfkJ4pGUxj" alt="{{ $user->name }}">
         <div class="card-body">
           <h5><strong>个人简介</strong></h5>
-          <p>我喜欢桃花, 而她缺不喜欢狗尾草!</p>
+          <p>{{ $user->introduction }}</p>
           <hr>
           <h5><strong>注册于</strong></h5>
-          <p>January 01 1901</p>
+          <p>{{ $user->created_at->diffForHumans() }}</p>
         </div>
       </div>
     </div>
