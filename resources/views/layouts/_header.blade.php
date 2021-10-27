@@ -24,7 +24,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
-              <img src="https://tvax3.sinaimg.cn/crop.0.0.1080.1080.180/006lYR5Rly8gnstou9ep7j30u00u0tc0.jpg?KID=imgbed,tva&Expires=1635186284&ssig=RfkJ4pGUxj" alt="{{ Auth::user()->name }}的个人头像" class="img-responsive img-circle" width="30px" style="border-radius: 15px">
+              <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}的个人头像" class="img-responsive img-circle" width="30px" style="border-radius: 15px">
               {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">

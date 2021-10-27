@@ -6,7 +6,7 @@
 
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs user-info">
       <div class="card ">
-        <img class="card-img-top" src="https://tvax3.sinaimg.cn/crop.0.0.1080.1080.180/006lYR5Rly8gnstou9ep7j30u00u0tc0.jpg?KID=imgbed,tva&Expires=1635186284&ssig=RfkJ4pGUxj" alt="{{ $user->name }}">
+        <img class="card-img-top" src="{{ $user->avatar }}" alt="{{ $user->name }}">
         <div class="card-body">
           <h5><strong>个人简介</strong></h5>
           <p>{{ $user->introduction }}</p>
