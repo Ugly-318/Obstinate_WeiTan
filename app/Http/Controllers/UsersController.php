@@ -27,13 +27,12 @@ class UsersController extends Controller
             $result = $uploader->save($request->avatar, 'avatars', $user->id);
             if ($result) {
                 $data['avatar'] = $result['path'];
-            } else {
-                // 上传有错误 withErrors 可以携带回错误信息
-                return back()->withErrors(['上传图片只支持png, jpg, gif, jpeg这四种格式']);
             }
+//            else {
+//                // 上传有错误 withErrors 可以携带回错误信息
+//                return back()->withErrors(['上传图片只支持png, jpg, gif, jpeg这四种格式']);
+//            }
         }
-        //
-
         $user->update($data);
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功!');
     }
