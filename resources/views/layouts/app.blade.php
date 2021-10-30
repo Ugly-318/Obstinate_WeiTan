@@ -9,6 +9,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>@yield('title', 'WeiTan') - 用心对待每一天</title>
+  <meta name="description" content="@yield('description', '要学习的还很多, 你只是刚刚踏入社会!')">
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
