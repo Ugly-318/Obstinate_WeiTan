@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Handlers\SlugTranslateHandler;
 use App\Models\Topic;
 
 // creating, created, updating, updated, saving,
@@ -19,13 +20,17 @@ class TopicObserver
         //
     }
 
-    // 在 Topic 模型中保存时触发的 saving 事件中, 对 except 字段进行赋值
     public function saving(Topic $topic)
     {
-        // 用户输入的内容进行过滤
+        // XSS 过滤
         $topic->body = clean($topic->body, 'user_topic_body');
 
-        // 对用户内容进行摘要操作
+        // 生成话题摘要
         $topic->excerpt = make_excerpt($topic->body);
+
+        // 如果 Slug 字段无内容, 即使用翻译器对 title 进行编译
+        if (! $topic->slug) {
+            $topic->slug = app(SlugTranslateHandler::class)->translate($topic->title);
+        }
     }
 }
