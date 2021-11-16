@@ -15,6 +15,7 @@ class ReplyPolicy extends Policy
 
     public function destroy(User $user, Reply $reply)
     {
-        return true;
+        // 拥有删除回复权限的用户, 应当是回复的作者 或是 回复话题的作者
+        return $user->isAuthorOf($reply) || $user->isAuthorOf($reply->topic);
     }
 }
